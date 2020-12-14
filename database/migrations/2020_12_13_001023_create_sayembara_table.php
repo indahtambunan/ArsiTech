@@ -18,9 +18,9 @@ class CreateSayembaraTable extends Migration
             $table->string('nama');
             $table->date('tanggal');
             $table->date('akhir');
-            $table->string('konsep');
             $table->string('luas_bangunan');
             $table->foreignId('pelanggan_id')->constrained('pelanggan')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('konsep_id')->constrained('konsep')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -2,9 +2,9 @@
     <thead>
         <tr>
             <th>No</th>
+            <th>Nama</th>
             <th>NIK</th>
             <th>KTP</th>
-            <th>Nama</th>
             <th>Jenis Kelamin</th>
             <th>Tanggal Lahir</th>
             <th>No Handphone</th>

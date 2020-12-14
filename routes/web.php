@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\KonsepController;
 use App\Http\Controllers\Admin\SayembaraController as AdminSayembaraController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Arsitek\DashboardController as ArsitekDashboardController;
@@ -39,6 +40,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/arsitek/detail/{id}', [UserController::class, 'show'])->name('arsitek.verif.detail');
         Route::get('/pelanggan', [UserController::class, 'pelanggan'])->name('pelanggan.verif.index');
         Route::get('/sayembara', [AdminSayembaraController::class, 'index'])->name('sayembara.verif.index');
+
+        // Konsep
+        Route::get('/konsep', [KonsepController::class, 'index'])->name('konsep.index');
+        Route::get('/konsep/create', [KonsepController::class, 'create'])->name('konsep.create');
+        Route::get('/konsep/edit', [KonsepController::class, 'edit'])->name('konsep.edit');
+        Route::get('/konsep/detail/{id}', [KonsepController::class, 'show'])->name('konsep.detail');
     });
 
     Route::group(['prefix' => 'arsitek', 'middleware' => ['role:arsitek']], function () {

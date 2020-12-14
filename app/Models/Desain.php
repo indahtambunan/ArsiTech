@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Desain extends Model
 {
     use HasFactory;
+
+    protected $table = 'desain';
+
+    protected $fillable = [
+        'arsitek_id',
+        'gambar'
+    ];
+
+    public function transaksi()
+    {
+        return $this->hasOne('App\Models\Transaksi');
+    }
 }

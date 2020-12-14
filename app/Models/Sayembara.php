@@ -13,7 +13,7 @@ class Sayembara extends Model
 
     protected $fillable = [
         'nama',
-        'konsep',
+        'konsep_id',
         'status',
         'tanggal',
         'akhir',
@@ -25,5 +25,15 @@ class Sayembara extends Model
     public function pelanggan()
     {
         return $this->belongsTo('App\Models\Pelanggan');
+    }
+
+    public function konsep()
+    {
+        return $this->belongsTo('App\Models\Konsep');
+    }
+
+    public function transaksi()
+    {
+        return $this->hasOne('App\Models\Transaksi');
     }
 }

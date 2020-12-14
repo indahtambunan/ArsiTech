@@ -26,6 +26,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('konsep.index') }}"
+                        class="nav-link {{ $active == 'konsep' ? 'active' : '' }}">
+                        <x-icon class="nav-icon fas fa-" type="book" />
+                        <p>
+                            Konsep
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-header"></li>
                 <li
                     class="nav-item has-treeview {{ $active == 'arsitek' || $active == 'pelanggan' ? 'menu-open' : '' }}">

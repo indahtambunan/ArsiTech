@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Konsep extends Model
 {
     use HasFactory;
+
+    protected $table = 'konsep';
+
+    protected $fillable = [
+        'nama',
+        'harga',
+    ];
+
+    public function sayembara()
+    {
+        return $this->hasMany('App\Models\Sayembara');
+    }
 }

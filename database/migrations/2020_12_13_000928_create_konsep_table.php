@@ -16,6 +16,7 @@ class CreateKonsepTable extends Migration
         Schema::create('konsep', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->double('harga');
             $table->timestamps();
         });
     }

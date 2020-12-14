@@ -5,7 +5,7 @@
         </div>
         <div class="card-body">
             {{ isset($button) ? $button : null }}
-            <table id="dt" class="table table-bordered table-striped">
+            <table id="dt" class="table table-bordered table-striped ">
                 {{ $slot }}
             </table>
         </div>
@@ -15,7 +15,9 @@
 @push('script')
 <script>
     $(document).ready(function() {
-        $('#dt').DataTable({});
+        $('#dt').DataTable({
+            responsive: true
+        });
     });
 </script>
 <script>
