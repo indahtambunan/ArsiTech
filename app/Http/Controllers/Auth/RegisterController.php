@@ -9,7 +9,10 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\File;
 use Laravolt\Avatar\Avatar;
 
 class RegisterController extends Controller
@@ -110,8 +113,12 @@ class RegisterController extends Controller
         } else {
             $file = $data['ijazah'];
             $file1 = $data['ktp'];
+
             $ijazah = 'ijazah_' . time() . '_' . $data['nama_depan'] . '.' . $file->getClientOriginalExtension();
             $ktp = 'ktp_' . time() . '_' . $data['nama_depan'] . '.' . $file1->getClientOriginalExtension();
+
+            $alamat_ijazah = $data['ijazah']->storeAs('foto/ijazah', $ijazah);
+            $alamat_ktp = $data['ktp']->storeAs('foto/ktp', $ktp);
 
             Arsitek::create([
                 'nama_depan' => $data['nama_depan'],
@@ -122,8 +129,8 @@ class RegisterController extends Controller
                 'no_hp' => $data['no_hp'],
                 'user_id' => $user->id,
                 'nik' => $data['nik'],
-                'ktp' => $ktp,
-                'ijazah' => $ijazah
+                'ktp' => $alamat_ktp,
+                'ijazah' => $alamat_ijazah
             ]);
         }
 
