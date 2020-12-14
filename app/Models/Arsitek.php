@@ -20,7 +20,8 @@ class Arsitek extends Model
         'no_hp',
         'user_id',
         'nik',
-        'ktp'
+        'ktp',
+        'ijazah'
     ];
 
     public function user()

@@ -62,7 +62,7 @@ class RegisterController extends Controller
                 'tanggal_lahir' => ['required'],
                 'alamat' => ['required', 'string'],
                 'no_hp' => ['required', 'numeric'],
-                'nik' => ['required', 'numeric', 'min:13'],
+                'nik' => ['required', 'numeric', 'min:10'],
                 'ktp' => ['required', 'image', 'mimes:jpg,png', 'max:5000'],
                 'ijazah' => ['required', 'image', 'mimes:jpg,png', 'max:5000'],
             ]);
@@ -76,7 +76,7 @@ class RegisterController extends Controller
                 'tanggal_lahir' => ['required'],
                 'alamat' => ['required', 'string'],
                 'no_hp' => ['required', 'numeric'],
-                'nik' => ['required', 'numeric', 'min:13'],
+                'nik' => ['required', 'numeric', 'min:10'],
             ]);
         }
     }
@@ -89,15 +89,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // dd($data['ijazah'], $data['ktp']);
-        $file = $data['ijazah'];
-        $file1 = $data['ktp'];
-        $ijazah = 'ijazah_' . time() . '_' . $data['nama_depan'] . '.' . $file->getClientOriginalExtension();
-        $ktp = 'ktp_' . time() . '_' . $data['nama_depan'] . '.' . $file1->getClientOriginalExtension();
-        dd($ijazah, $ktp);
-
         $avatar =  new Avatar();
-        // dd($avatar->create($data['nama_depan'] . $data['nama_belakang'])->to());
         $user = User::create([
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -116,6 +108,10 @@ class RegisterController extends Controller
                 'user_id' => $user->id
             ]);
         } else {
+            $file = $data['ijazah'];
+            $file1 = $data['ktp'];
+            $ijazah = 'ijazah_' . time() . '_' . $data['nama_depan'] . '.' . $file->getClientOriginalExtension();
+            $ktp = 'ktp_' . time() . '_' . $data['nama_depan'] . '.' . $file1->getClientOriginalExtension();
 
             Arsitek::create([
                 'nama_depan' => $data['nama_depan'],

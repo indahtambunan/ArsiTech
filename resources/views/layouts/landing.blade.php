@@ -26,7 +26,7 @@
             </div>
             <!-- User name -->
             {{-- <div class="lockscreen-name">John Doe</div> --}}
-
+            <x-success-msg />
             @if (Route::has('login'))
             @auth
             <center>
@@ -40,7 +40,7 @@
             </center>
             @else
             <div class="container">
-                <x-success-msg />
+                
                 <div class="row">
                     {{-- <center> --}}
                     <div class="col-6">

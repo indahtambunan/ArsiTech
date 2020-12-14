@@ -22,8 +22,8 @@ class Role
                 return $next($request);
             } else {
                 \Auth::logout();
-                session()->flash('message', 'Akun Belum Terverifikasi Harap Menunggu.');
-                return redirect()->route('login');
+                // session()->flash('message', 'Akun Belum Terverifikasi Harap Menunggu.');
+                return redirect()->route('login')->with('message', 'Akun Belum Terverifikasi Harap Menunggu.');
             }
         } else {
             abort(404);

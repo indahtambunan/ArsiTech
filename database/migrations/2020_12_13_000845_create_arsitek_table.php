@@ -26,6 +26,7 @@ class CreateArsitekTable extends Migration
             $table->text('alamat');
             $table->string('no_hp');
             $table->string('ktp')->nullable();
+            $table->string('ijazah')->nullable();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
