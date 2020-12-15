@@ -22,7 +22,7 @@
         <!-- Automatic element centering -->
         <div class="lockscreen-wrapper">
             <div class="lockscreen-logo">
-                <a href="../../index2.html"><b>Lelang</b>Desain</a>
+                <a href="../../index2.html"><b>ArsiTech</b></a>
             </div>
             <!-- User name -->
             {{-- <div class="lockscreen-name">John Doe</div> --}}
