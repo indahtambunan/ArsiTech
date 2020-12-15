@@ -1,4 +1,5 @@
 <x-form>
+    {{-- {{dd($data)}} --}}
     <x-slot name="title">Data Sayembara</x-slot>
     <form wire:submit.prevent="store" method="POST">
         @csrf
@@ -6,19 +7,33 @@
             <x-slot name="label">Nama</x-slot>
         </x-input.input>
 
-        <x-input.input wire:model="konsep">
+        <x-input.select2 data="$konsep" select-type="label" id="konsep" name="konsep">
             <x-slot name="label">Konsep</x-slot>
-        </x-input.input>
+            <x-slot name="opt">
+                @foreach ($konsep as $k)
+                    <option value="{{$k->id}}">{{$k->nama}} Harga = Rp. {{number_format($k->harga)}} /m<sup>2</sup></option>
+                @endforeach
+            </x-slot>
+            @error('konsep')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+        </x-input.select2>
 
         <x-container class="row">
             <x-container class="col-sm-12 col-md-6">
-                <x-input.datepicker wire:model="awal" id="awal" data-date-format="yyyy/mm/dd">
+                <x-input.datepicker name="awal" id="awal" data-date-format="yyyy/mm/dd">
                     <x-slot name="label">Tanggal Mulai</x-slot>
+                    @error('awal')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
                 </x-input.datepicker>
             </x-container>
             <x-container class="col-sm-12 col-md-6">
-                <x-input.datepicker wire:model="akhir" id="akhir" data-date-format="yyyy/mm/dd">
+                <x-input.datepicker name="akhir" id="akhir" data-date-format="yyyy/mm/dd">
                     <x-slot name="label">Tanggal Akhir</x-slot>
+                    @error('akhir')
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
                 </x-input.datepicker>
             </x-container>
         </x-container>
@@ -48,6 +63,23 @@
         $('#akhir').on('change', function(){
             @this.akhir = $(this).val()
         });
+        // $("#konsep").select2({
+        //     autoclose: true,
+        //     placeholder: 'Pilih Data',
+        // });
+        // $(document).on('change', '#konsep', function (e) {
+        //     @this.set(e.target.value);
+        // });
+        // $('#konsep').on('change', function(){
+        //     @this.konsep = $(this).val()
+        // });
+        // document.addEventListener("livewire:load", function (event) {
+        //     window.livewire.hook('afterDomUpdate', () => {
+        //         $('#konsep').select2({
+        //             placeholder: 'Select an option',
+        //         });
+        //     });
+        // });
     });
 
 </script>

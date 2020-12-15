@@ -1,6 +1,9 @@
-<div class="form-group">
-    {{ isset($label) ? $label : null }}
+<div wire:ignore class="form-group">
+    <x-input.label for="{{$label}}">{{ucfirst($label)}}</x-input.label>
     <input {{ $attributes->merge(['class' => 'form-control']) }}>
+    @error(strtolower(substr($label, 0, strrpos($label, ' ') ? strrpos($label, ' ') : strlen($label))))
+    <span class="text-danger">{{$message}}</span>
+    @enderror
 </div>
 
 @push('css')
