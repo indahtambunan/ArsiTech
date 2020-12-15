@@ -16,7 +16,8 @@
 <script>
     $(document).ready(function() {
         $('#dt').DataTable({
-            responsive: true
+            "responsive": true,
+            "autoWidth": false,
         });
     });
 </script>

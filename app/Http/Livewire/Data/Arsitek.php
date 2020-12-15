@@ -16,6 +16,7 @@ class Arsitek extends Component
 
     public function detail($id)
     {
+        // dd('masuk');
         return redirect()->route('arsitek.verif.detail', $id);
     }
 

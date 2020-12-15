@@ -15,8 +15,8 @@ class CreateDesainTable extends Migration
     {
         Schema::create('desain', function (Blueprint $table) {
             $table->id();
+            $table->string('gambar');
             $table->foreignId('arsitek_id')->constrained('arsitek')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('transaksi_id')->constrained('transaksi')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

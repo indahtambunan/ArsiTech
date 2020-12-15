@@ -23,7 +23,7 @@
         @livewireScripts
         {{-- <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"
             data-turbolinks-eval="false"></script> --}}
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js"></script>
         {{-- <script src="{{ mix('js/app.js') }}"></script> --}}
 
         @stack('css')
@@ -79,7 +79,7 @@
         <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
         <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
         <script src="{{ asset('dist/js/demo.js') }}"></script>
-        {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
         @stack('js')
         @stack('script')
